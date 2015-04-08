@@ -121,7 +121,7 @@ class TraderImpl implements Trader {
                 locks.release();
             }
             catch (InterruptedException ie) {}
-        
+            }     
       
     }
                 
