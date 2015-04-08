@@ -114,9 +114,13 @@ class TraderImpl implements Trader {
         
         P2.specialist(g).swap(mine, order.get(g));
         
+        try{
+        	locks.acquire();
                 stocked.change(g, order.get(g));
                 stocked.change(mine, (-1*order.get(g)));
+                locks.release();
             }
+            catch (InterruptedException ie) {}
         
       
     }
